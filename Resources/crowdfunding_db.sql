@@ -1,16 +1,16 @@
--- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- Link to schema: https://app.quickdatabasediagrams.com/#/d/3nf2f4
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-
--- Project 2
+Drop Table "category"
 
 CREATE TABLE "category" (
     "category_id" VARCHAR(50)   NOT NULL,
     "category" VARCHAR(50)   NOT NULL,
-    CONSTRAINT "pk_category" PRIMARY KEY (
+    CONSTRAINT "pk_cateogry" PRIMARY KEY (
         "category_id"
      )
 );
+
+SELECT * FROM category
+
+DROP TABLE "subcategory"
 
 CREATE TABLE "subcategory" (
     "subcategory_id" VARCHAR(50)   NOT NULL,
@@ -19,6 +19,24 @@ CREATE TABLE "subcategory" (
         "subcategory_id"
      )
 );
+
+SELECT * FROM subcategory
+
+DROP TABLE "contacts"
+
+CREATE TABLE "contacts" (
+    "contact_id" INT   NOT NULL,
+    "first_name" VARCHAR(50)   NOT NULL,
+    "last_name" VARCHAR(50)   NOT NULL,
+    "email" VARCHAR(255)   NOT NULL,
+    CONSTRAINT "pk_contacts" PRIMARY KEY (
+        "contact_id"
+     )
+);
+
+SELECT * FROM contacts
+
+DROP TABLE "campaign"
 
 CREATE TABLE "campaign" (
     "cf_id" INT   NOT NULL,
@@ -40,21 +58,6 @@ CREATE TABLE "campaign" (
      )
 );
 
-CREATE TABLE "contacts" (
-    "contact_id" INT   NOT NULL,
-    "first_name" VARCHAR(50)   NOT NULL,
-    "last_name" VARCHAR(50)   NOT NULL,
-    "email" VARCHAR(255)   NOT NULL,
-    CONSTRAINT "pk_contacts" PRIMARY KEY (
-        "contact_id"
-     )
-);
+SELECT * FROM campaign
 
-ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_contact_id" FOREIGN KEY("contact_id")
-REFERENCES "contacts" ("contact_id");
 
-ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_category_id" FOREIGN KEY("category_id")
-REFERENCES "category" ("category_id");
-
-ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_subcategory_id" FOREIGN KEY("subcategory_id")
-REFERENCES "subcategory" ("subcategory_id");
