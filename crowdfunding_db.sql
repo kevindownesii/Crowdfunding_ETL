@@ -1,8 +1,4 @@
--- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- Link to schema: https://app.quickdatabasediagrams.com/#/d/3nf2f4
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-
--- Project 2
+Drop Table "category"
 
 CREATE TABLE "category" (
     "category_id" VARCHAR(50)   NOT NULL,
@@ -12,6 +8,10 @@ CREATE TABLE "category" (
      )
 );
 
+SELECT * FROM category
+
+DROP TABLE "subcategory"
+
 CREATE TABLE "subcategory" (
     "subcategory_id" VARCHAR(50)   NOT NULL,
     "subcategory" VARCHAR(50)   NOT NULL,
@@ -19,6 +19,10 @@ CREATE TABLE "subcategory" (
         "subcategory_id"
      )
 );
+
+SELECT * FROM subcategory
+
+DROP TABLE "campaign"
 
 CREATE TABLE "campaign" (
     "cf_id" INT   NOT NULL,
@@ -40,6 +44,10 @@ CREATE TABLE "campaign" (
      )
 );
 
+SELECT * FROM campaign
+
+DROP TABLE "contacts"
+
 CREATE TABLE "contacts" (
     "contact_id" INT   NOT NULL,
     "first_name" VARCHAR(50)   NOT NULL,
@@ -50,12 +58,6 @@ CREATE TABLE "contacts" (
      )
 );
 
-ALTER TABLE "cateogry" ADD CONSTRAINT "fk_cateogry_category_id" FOREIGN KEY("category_id")
-REFERENCES "campaign" ("category_id");
+SELECT * FROM contacts
 
-ALTER TABLE "subcategory" ADD CONSTRAINT "fk_subcategory_subcategory_id" FOREIGN KEY("subcategory_id")
-REFERENCES "campaign" ("subcategory_id");
-
-ALTER TABLE "contacts" ADD CONSTRAINT "fk_contacts_contact_id" FOREIGN KEY("contact_id")
-REFERENCES "campaign" ("contact_id");
 
