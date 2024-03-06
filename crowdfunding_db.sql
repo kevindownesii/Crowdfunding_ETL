@@ -22,6 +22,20 @@ CREATE TABLE "subcategory" (
 
 SELECT * FROM subcategory
 
+DROP TABLE "contacts"
+
+CREATE TABLE "contacts" (
+    "contact_id" INT   NOT NULL,
+    "first_name" VARCHAR(50)   NOT NULL,
+    "last_name" VARCHAR(50)   NOT NULL,
+    "email" VARCHAR(255)   NOT NULL,
+    CONSTRAINT "pk_contacts" PRIMARY KEY (
+        "contact_id"
+     )
+);
+
+SELECT * FROM contacts
+
 DROP TABLE "campaign"
 
 CREATE TABLE "campaign" (
@@ -45,19 +59,4 @@ CREATE TABLE "campaign" (
 );
 
 SELECT * FROM campaign
-
-DROP TABLE "contacts"
-
-CREATE TABLE "contacts" (
-    "contact_id" INT   NOT NULL,
-    "first_name" VARCHAR(50)   NOT NULL,
-    "last_name" VARCHAR(50)   NOT NULL,
-    "email" VARCHAR(255)   NOT NULL,
-    CONSTRAINT "pk_contacts" PRIMARY KEY (
-        "contact_id"
-     )
-);
-
-SELECT * FROM contacts
-
 
