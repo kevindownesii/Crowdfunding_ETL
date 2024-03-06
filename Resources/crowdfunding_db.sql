@@ -60,4 +60,3 @@ CREATE TABLE "campaign" (
 
 SELECT * FROM campaign
 
-
